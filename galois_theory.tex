@@ -1,0 +1,154 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+
+\begin{document}
+
+\title{Notes on Galois Theory}
+\maketitle
+
+\section{Roots of Unity and Cyclotomic Polynomials}
+
+The n\textsuperscript{th} roots of unity are defined as the solutions to the equation
+\begin{equation}
+\zeta^{n} = 1
+\end{equation}
+
+There are n solutions to this equation given by,
+\begin{equation}
+\zeta_{n, k} = e^{\frac{2 \pi i k}{n}}
+\end{equation}
+
+However, notice that some of these are less interesting solutions (for example $ 1 $ is always an n\textsuperscript{th} root of unity for all $n$). We define the \textbf{primitive roots of unity} to be those for which,
+\begin{subequations}
+\begin{align}
+\zeta^{k} & \neq 1 \quad \forall k < n \\
+\zeta^{n} & = 1
+\end{align}
+\end{subequations}
+
+\subsection{Group structure}
+
+The roots of unity form a group since if $a$ and $b$ are both roots of unity, then $(ab)^{n} = 1$. In addition, $1$ is trivially a root of unity. Finally, inverses exist since $\frac{1}{a}$ is clearly also a root of unity.
+
+What is the group structure?
+
+TODO xxx
+
+\subsection{Digression: Multiplicative and Additive Groups}
+
+This section is a quick digression for understanding the relationship between additive and multiplicative groups. To start, for prime $ p $, we'll focus on the relationship between the multiplicative group, $ \mathbb{F}_{p}^{\times} $, and the additive group of integers mod $ p - 1 $ which we'll write as $ \mathbb{Z}_{p-1} $
+
+To start we'll write out the simplest nontrivial example of
+\begin{equation}
+\mathbb{F}_{5}^{x} \cong \mathbb{Z}_{4}
+\end{equation}
+
+Being very explicit, it's useful to write out the multiplication table. For $ \mathbb{F}_{5}^{x} $,
+
+\begin{table}
+\begin{tabular}{ | c || c | c | c | c |}
+\hline
+   & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\ \hline\hline
+\textbf{1} & 1 & 2 & 3 & 4 \\ \hline
+\textbf{2} & 2 & 4 & 1 & 3 \\ \hline
+\textbf{3} & 3 & 1 & 4 & 2 \\ \hline
+\textbf{4} & 1 & 3 & 2 & 1 \\ \hline
+\end{tabular}
+\end{table}
+
+and for $ \mathbb{Z}_{4} $ the addition table,
+
+\begin{table}
+\begin{tabular}{ | c || c | c | c | c |}
+\hline
+   & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} \\ \hline\hline
+\textbf{0} & 0 & 1 & 2 & 3 \\ \hline
+\textbf{1} & 1 & 2 & 3 & 0 \\ \hline
+\textbf{2} & 2 & 3 & 0 & 1 \\ \hline
+\textbf{3} & 3 & 0 & 1 & 2 \\ \hline
+\end{tabular}
+\end{table}
+
+Looking at this table there are mulitple isomorphisms. Either
+\begin{subequations}
+\begin{align}
+1 & \leftrightarrow 0 \\
+2 & \leftrightarrow 1 \\
+3 & \leftrightarrow 3 \\
+4 & \leftrightarrow 2
+\end{align}
+\end{subequations}
+
+or 
+
+\begin{subequations}
+\begin{align}
+1 & \leftrightarrow 0 \\
+2 & \leftrightarrow 3 \\
+3 & \leftrightarrow 1 \\
+4 & \leftrightarrow 2
+\end{align}
+\end{subequations}
+
+These correspond respectively to the maps group homomorphisms, $ \mathbb{Z}_{4} \rightarrow \mathbb{F}_{5}^{\times} $
+\begin{subequations}
+\begin{align}
+f_{2}: x & \mapsto 2^{x} \\
+f_{3}: x & \mapsto 3^{x}
+\end{align}
+\end{subequations}
+
+More generally we can look at the map, $ \mathbb{Z}_{p-1} \rightarrow \mathbb{F}_{p}^{\times} $, defined by
+\begin{equation}
+f_{a} : x \mapsto a^{x}
+\end{equation}
+
+and verify that it is actually a group homomorphism. We can quickly check that this does not define a homomorphism if $a=0$, so we'll assume $a\neq 0$ for the rest of the discussion.
+
+First we check that it preserves the group operation,
+\begin{subequations}
+\begin{align}
+f_{a}(n)\cdot f_{a}(m) & = a^{n} \cdot a^{m} = a^{n+m} = f(n+m) \quad \qedsymbol
+\end{align}
+\end{subequations}
+
+We also need to ensure the image of this map is actually in $ \mathbb{F}_{p}^{\times} $ by checking that
+\begin{equation}
+2^{n} = 0
+\end{equation}
+has no solutions in $ \mathbb{F}_{p} $. This is obvious since p is prime (ignoring the edge case of $p=2$).
+
+Now that we've established that this is a well-defined homomorphism, we want to now understand when it's an isomorphism. Since both groups are finite, it's enough to check that the map is injective.
+
+Therefore, we want to understand for what values of $ a $ the following equation has nontrivial solutions
+\begin{equation}
+a^n = 1 \quad \mod p
+\end{equation}
+where $ 0 \leq n \leq p - 2 $. We know for $a=1$ this equation is true for all values of $n$. Similarly, it's straightforward to see that for $a=-1$ this equation has a nontrival solution when $n=2$. What about other values?
+
+We use the known fact (see Serre for a proof) that $ \mathbb{F}_{p-1}^{\times} $ is cyclic. Suppose we have a generator for $ \mathbb{F}_{p-1}^{\times} $, x (note: there is not deterministic way to quickly find a generator, but there are known polynomial time probabilistic algorithms). Then it's easy to see that for all choices of
+\begin{equation}
+a = x^{k} \quad s.t. \quad (k, p - 1) = 1
+\end{equation}
+the map will be an isomorphism. Therefore there are $\phi(p-1)$ distinct isomorphisms.
+
+Phrasing this all in a different way, each isomorphism corresponds to finding a generator for $ \mathbb{F}_{p-1}^{\times} $.
+
+\subsection{Digression Part 2: Non-prime examples}
+
+If p is not prime, we can still look at the multiplicative group - what group is this isomorphic to?
+
+Worked example: $ \mathbb{F}_{10}^{\times} $
+
+NOTE: this is a bad example since it's simple
+
+General case (taken from wikipedia) is that this is \textbf{not} cyclic using Chinese Remainder Theorem
+
+\subsection{Galois Theory of Finite Fields}
+TODO: describe the Galois Theory of finite fields which is relatively simple (and kinda boring)
+
+\end{document}
