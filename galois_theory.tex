@@ -151,4 +151,19 @@ General case (taken from wikipedia) is that this is \textbf{not} cyclic using Ch
 \subsection{Galois Theory of Finite Fields}
 TODO: describe the Galois Theory of finite fields which is relatively simple (and kinda boring)
 
+Digression: when looking at groups, a standard way to get "new" groups is to take the direct product, for example:
+\begin{equation}
+H = G \times G
+\end{equation}
+We can ask why we can't do a similar operation on fields. Imagine defining a new field,
+\begin{equation}
+F = E \times E
+\end{equation}
+But now we have the problem that \((1, 0)\) and \((0, 1)\) are both elements of $ F $ but
+\begin{equation}
+(1, 0) \cdot (0, 1) = (0, 0) = 0
+\end{equation}
+But we know that fields can't have zero divisors so $ F $ isn't a field. So we see that we can't take direct products of fields to get new ones.
+
+
 \end{document}
