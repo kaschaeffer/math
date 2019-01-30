@@ -165,5 +165,12 @@ But now we have the problem that \((1, 0)\) and \((0, 1)\) are both elements of 
 \end{equation}
 But we know that fields can't have zero divisors so $ F $ isn't a field. So we see that we can't take direct products of fields to get new ones.
 
+We want to look at finite extensions of $ \mathbb{F}_{p} $. Supposed the extension, $ E / \mathbb{F}_{p} $, has degree $ [E : \mathbb{F}_{p}] = f $. Then it's straightforward to see that $ E $ must have size $ p^{f} $ (since $ E $ is an $f$-dimensional vector space over $\mathbb{F}_{p}$).
+
+A key result is that finite fields of the same size are \textbf{isomorphic} (TODO: give proof). Note that this is different from groups, where there may be many groups of the same size (for example, there are two groups of order 4, $ Z_{4} $ and $ Z_{2} \times Z_{2} $). The intuitive reason for this is that groups require less structure so there are more different ways that a fixed set of elements can form a group - however, fields are required to have substantially more structure, so much so that the size of the field fixes the field itself.
+
+
+Therefore, we find that $ E $ must be isomorphic to $ F_{p^{f}} $. Overall this means that the only extensions of $ F_{p} $ are the $ F_{p^{f}} $.
+
 
 \end{document}
