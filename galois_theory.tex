@@ -172,5 +172,14 @@ A key result is that finite fields of the same size are \textbf{isomorphic} (TOD
 
 Therefore, we find that $ E $ must be isomorphic to $ F_{p^{f}} $. Overall this means that the only extensions of $ F_{p} $ are the $ F_{p^{f}} $.
 
+We can show that $ F_{p^{k}} $ is isomorphic to the splitting field of $ X^{p^{k}} - X $ (TODO: show why this is true). Next we can ask if this extension is Galois over $ F_{p} $.
+
+First, this is a splitting field by definition (TODO explain this more).
+Second, we need to show show that the extension is separable. We need to verify that the polynomial has no multiple roots. We can check:
+\begin{equation}
+f'(x) = p^{k}\cdot X^{p^{k} - 1} - 1 = - 1
+\end{equation}
+But then it's clear that $f'(x)$ and $f(x)$ cannot have any shared zeros, so there are no multiple roots.
+
 
 \end{document}
