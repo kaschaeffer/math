@@ -181,5 +181,22 @@ f'(x) = p^{k}\cdot X^{p^{k} - 1} - 1 = - 1
 \end{equation}
 But then it's clear that $f'(x)$ and $f(x)$ cannot have any shared zeros, so there are no multiple roots.
 
+\subsection{Digression about bounds on numbers of subgroups}
+This section is focused on the question of how many subgroups there are of a group of order $ n $. Via Galois theory this is also a statement about the number of intermediate fields of a field extension.
+
+The naive bound is $ 2^{n} $ which comes from simply looking at all possible subsets of the elements of the group. However, we can do better than this by recognizing that each subgroup has to contain the identity element, giving a bound of $ 2^{n-1} $.
+
+To saturate this bound, we need it to be the case that when we add an element to a subgroup we don't need to add it's inverse additional - i.e. we need that each element is its own inverse. This can be achieved in the group $ \mathbb{Z}_{2} \times \mathbb{Z}_{2} \times \cdots $.
+
+However, another challenges is that if we create a subgroup consisting of $ 1, a, b $ we need it to be the case that no other elements are necessary to complete the subgroup - in particular $ab$ must already be in the subgroup. Obviously we cannot have $ ab = a$ or $ab = b$ since then one of the elements would be the identity. If instead we have $ab = 1$ then it's straightforward to show that:
+\begin{subequations}
+\begin{align}
+ab & = 1 \\
+a\cdot ab &= a \\
+a^{2}b & = a \\
+b & = a
+\end{align}
+\end{subequations}
+which is also a contradiction. Therefore, we see that $2^{n-1}$ is not a tight bound.
 
 \end{document}
