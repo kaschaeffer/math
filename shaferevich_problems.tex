@@ -1,0 +1,354 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+
+\begin{document}
+
+\text{Shaferevich Solutions}
+
+\section{Solutions to Section 1}
+
+\subsection{}
+TODO
+
+\subsection{}
+Assume \(p(x)\) is order \(n\) and \(q(x)\) is order \(m\). Then we can write
+\begin{equation}
+\frac{p(x)}{q(x)} = c\frac{\prod_{i=1}^{n}(x-p_{i})}{\prod_{j=1}^{m}(x-q_{i})}
+\end{equation}
+(assuming we're working over an algebraically closed field). In homogenous coordinates \(x=\xi/\eta\), so we can rewrite the expression as
+\begin{equation}
+c\frac{\prod_{i=1}^{n}(\xi/\eta -p_{i})}{\prod_{j=1}^{m}(\chi/\eta-q_{i})} = c\eta^{m-n}\frac{\prod_{i=1}^{n}(\xi -p_{i}\eta)}{\prod_{j=1}^{m}(\chi-q_{i}\eta)}
+\end{equation}
+We can reach the point at infinity by setting \(\xi=1\) and letting \(\eta \to 0\), which corresponds to
+\begin{equation}
+\lim_{\eta \to 0} c\eta^{m-n}\frac{\prod_{i=1}^{n}(1 -p_{i}\eta)}{\prod_{j=1}^{m}(1-q_{i}\eta)}
+\end{equation}
+Thus we see that this function is only well defined if \(m-n \geq 0\) and the zero is of order \(m-n\).
+
+TODO rewrite above without assuming field is algebraically closed.
+
+\subsection{}
+The cubic curve equation can be written as
+\begin{equation}
+y^{2} = x^{3} + ax^{2} + bx + c
+\end{equation}
+We can also compute,
+\begin{equation}
+\frac{\partial f}{\partial y} = 2y
+\end{equation}
+and
+\begin{equation}
+\frac{\partial f}{\partial x} = 3x^{2} + 2ax + b
+\end{equation}
+Thus, any singular point on this curve must occur at \(y=0\) and at a place where
+\begin{equation}
+x^{3} + ax^{2} + bx + c = 3x^{2} + 2ax + b = 0
+\end{equation}
+Thus we see that there are at most 2 singular points. Assume there are exactly 2 distinct singular points. Then that means that we can write the curve as,
+\begin{equation}
+y^{2} = (x-\alpha)(x-\beta)(x-\gamma)
+\end{equation}
+TODO
+
+\subsection{}
+
+\subsection{}
+Take some line through the original, defined by the equation
+\begin{equation}
+y = mx
+\end{equation}
+We want to prove that this line is tangent to the curve \(y=x^{p+1}\).
+
+For any point on the curve \((t, t^{p+1})\), the tangent line is given by
+\begin{equation}
+t^{p}(x-t) = (y-t^{p+1})
+\end{equation}
+or equivalently
+\begin{equation}
+y = t^{p}x
+\end{equation}
+Therefore, we just need to prove that for any choice of \(m\), we can find some \(t\) such that \(t^{p} = m\). Why is this true? 
+
+We now need to understand solutions to
+\begin{equation}
+x^{p} - m = 0
+\end{equation}
+
+But this can just be written as
+\begin{equation}
+(x - m)^{p} = 0
+\end{equation}
+
+using facts about the binomial formula in characteristic p. So we see that there's always a solution and the curves are tangent at \((m, m^{2})\).
+
+\emph{Prove that over a field of characteristic 0, there are at most a finite number of lines through a given point tangent to a given irreducible curve.}
+The arbitrary lines are given by the equation,
+\begin{equation}
+g_{m}(x, y) = m(x-p) + y-q = 0
+\end{equation}
+We can equivalently write this as
+\begin{equation}
+y = mx + b
+\end{equation}
+We also have the equation,
+\begin{equation}
+f(x, y) = 0
+\end{equation}
+for the curve, and we require (tangency) that \(f'_{x}/f'_{y} = m\)
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+A projective line, \(L\), is defined by the equation
+\begin{equation}
+ax + by + cz = 0
+\end{equation}
+
+We define the function
+
+\section{Solutions to Section 2}
+
+\subsection{}
+The set, \(X\), defined by \(f = x^{2} + y^{2} - 1 = 0\) and \(g = x -1=0\) is equal to the point \((1, 0)\). That means that the ideal \(\mathbb{U}_{X}\) is equal to \((x-1, y)\). But then \(\mathbb{U}_{X} \neq (f, g)\).
+
+One way to see this is to note that,
+\begin{equation}
+f - g\cdot(x+1) = x^{2} + y^{2} - 1 - x^{2} + 1 = y^{2}
+\end{equation}
+which means that \((f, g) = (x-1, y^{2})\).
+
+\subsection{}
+Prove by induction on the maximum degree, \(d\) of \(y\) for an element \(f \in k[X]\). The statement is obviously true for elements with \(d \leq 1\). Now take some element of degree \(d\),
+\begin{equation}
+f(x, y) = y^{d}f_{d}(x) + y^{d-1}f_{d-1}(x) + \cdots
+\end{equation}
+We can rewrite this in \(k[X]\) as,
+\begin{subequations}
+\begin{align}
+f(x,y) & =  y^{2}y^{d-2}f_{d}(x) + y^{d-1}f_{d-1}(x) + \cdots - (y^{2}-x^{3})y^{d-2}f_{d}(x) \\
+& =  y^{d-1}f_{d-1}(x) + x^{3}y^{d-2}f_{d}(x) + \cdots
+\end{align}
+\end{subequations}
+So that \(f(x,y)\) has been rewritten as a degree \(d-2\) polynomial. But then by induction it must be writable in the required form.
+
+\subsection{}
+We have the map,
+\begin{equation}
+f(t) = (t^{2}, t^{3})
+\end{equation}
+from \(\mathbb{A}^{1} \to X\) where \(X\) is the curve defined by \(y^{2} - x^{3}=0\). If an inverse exists, it must be an element of \(k[X]\) and so from the previous exercise, must be of the form,
+\begin{equation}
+g(x, y) = P(x) + yQ(x)
+\end{equation}
+Now composing the two maps we get,
+\begin{equation}
+(g\circ f)(t) = P(t^{2}) + t^{3}Q(t^{2})
+\end{equation}
+For an inverse to exist, this must be equal to \(t\), but it's clear that this expression cannot include any terms with \(t^{1}\).
+
+\subsection{}
+TODO
+
+\subsection{}
+TODO
+
+\subsection{}
+What is the image of \(f : \mathbb{A}^{2} \to \mathbb{A}^{2}\) give by \(f(x, y) = (x, xy)\). Choose any target coordinates \((u, v)\), then we can find a preimage for them given by \((u, v/u)\). As a result, it's clear that all values where \(u \neq 0\) are contained in \(f(\mathbb{A}^{2})\). It's also clear that \((0, 0)\) is contained in the image. However, it's easy to see that \((0, v)\) with \(v \neq 0\) is not contained in the image.
+
+Therefore the image is given by \(X = \mathbb{A}^{2} - Y\) where \(Y = \{ (0, v) \in \mathbb{A}^{2} | v \neq 0\}\).
+
+In the Zariski topology, this image is neither open nor closed. Suppose that \(X\) is closed. Then we can examine the ideal \(\mathfrak{U}_{X}\). However, it's immediately clear that the only element that vanishes on \(X\) is given by \((0)\) which corresponds to the subset \(\mathbb{A}^{2}\). Therefore \(X\) cannot be closed.
+
+If \(X\) were open, then \(Y\) would be closed. But suppose that were the case: we can write a polynomial as,
+\begin{equation}
+f(x, y) = f_{0}(y) + xf_{1}(y) + x^{2}f_{2}(y) + \cdots
+\end{equation}
+On Y, this evaluates to
+\begin{equation}
+f(0, y) = f_{0}(y)
+\end{equation}
+But this must be equal to \(0\) for all nonzero values of \(y)\), which implies that
+\begin{equation}
+f_{0}(y) = 0
+\end{equation}
+But then it's clear that \(f\) must also be 0 on \((0, 0)\), so \(Y\) must not be closed.
+
+Next we turn to whether \(X\) is dense. From the above argument, it's clear that for any closed subset \(M\supset X\), \(M = \mathbb{A}^{2}\). Therefore \(\overline{X} = \mathbb{A}^{2}\).
+
+\subsection{}
+TODO
+
+\subsection{}
+Consider an automorphism of \(\mathbb{A}^{1}\) with map \(f\) and inverse \(g\). We can write,
+\begin{subequations}
+\begin{align}
+f(x) & = a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_{0} \\
+g(x) & = b_{m}x^{m} + b_{m-1}x^{m-1} + \cdots + b_{0}
+\end{align}
+\end{subequations}
+
+For this to be automorphism it must be the case that,
+\begin{equation}
+(g \circ f)(x) = x
+\end{equation}
+
+Substituting the explicit expansion we can look at the leading term of this equation,
+\begin{equation}
+(g \circ f)(x) = b_{m}a_{n}^{m}x^{nm} + \cdots = x
+\end{equation}
+
+But then it is clear that we must have \(n=1\) and \(m=1\). Finally, we must show that when \(n=1\) that an inverse exists. Suppose, \(f(x) = ax + b\) and \(g(x) = cx + d\), then substituting in we get,
+\begin{equation}
+(g \circ f)(x) = c(ax + b) + d = cax + bc + d
+\end{equation}
+Which implies \(c = 1/a\) and \(d = -b/a\) and that this is only an automorphism when \(a \neq 0\).
+
+\subsection{}
+Need to prove that \(f(x, y) = (\alpha x, \beta y + P(x))\) is an automorphism of \(\mathbb{A}^{2}\) where \(\alpha, \beta \in k\) are nonzero elements and \(P(x)\) is a polynomial.
+
+The easiest way is to explicitly exhibit an inverse, \(g(u, v) = (h(u, v), i(u, v))\). It's clear to see that we must have \(h(u, v) = \alpha^{-1}u\). It's also not too much work to guess that we must have
+\begin{equation}
+i(u, v) = \beta^{-1}(v - P(\alpha^{-1}u))
+\end{equation}
+so that overall,
+\begin{equation}
+g(u, v) = (\alpha^{-1}u, \beta^{-1}(v - P(\alpha^{-1}u)))
+\end{equation}
+Substituting explicitly, we verify,
+\begin{equation}
+(g\circ f)(x, y) = (\alpha^{-1}\alpha x, \beta^{-1}(\beta y + P(x) - P(\alpha^{-1}\alpha x))) = (x, y)
+\end{equation}
+
+Finally, let us verify that elements of the above form are a group. Let us use the notation where we identify any element of the group by \((\alpha, \beta, P(x))\). Then the identity is clearly given by \((1, 1, 0)\). The inverse of any element is given from the argument above by, \((\alpha^{-1}, \beta^{-1}, -\beta^{-1}P(\alpha^{-1}x))\). Finally, we need to verify that composition yields an element still in the group. Let's compose \(f_{1} = (\alpha_{1}, \beta_{1}, P_{1}(x))\) with \(f_{2} = (\alpha_{2}, \beta_{2}, P_{2}(x))\)
+\begin{subequations}
+\begin{align}
+(f_{2}\circ f_{1})(x) & = (\alpha_{2}(\alpha_{1}x), \beta_{2}(\beta_{1}y + P_{1}(x)) + P_{2}(\alpha_{1}x)) \\
+ & = (\alpha_{2}\alpha_{1}x, \beta_{2}\beta_{1}y + \beta_{2}P_{1}(x) + P_{2}(\alpha_{1}(x)))
+\end{align}
+\end{subequations}
+so that the composition is in the right form and has parameters \((\alpha_{2}\alpha_{1}, \beta_{2}\beta_{1}, \beta_{2}P_{1}(x) + P_{2}(\alpha_{1}x))\).
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+\begin{subequations}
+\begin{align}
+Z_{\mathbb{A}^{n}}(t) & = \sum_{r=1}^{\infty} \nu_{r}t^{r} \\
+& = \sum_{r=1}^{\infty}p^{rn}t^{r} \\
+& = \frac{p^{n}t}{1-p^{n}t}
+\end{align}
+\end{subequations}
+
+\subsection{}
+Want to solve this for a nonsingular conic in \(\mathbb{A}^{2}\). For simplicity, we choose the equation,
+\begin{equation}
+x^{2} + y^{2} - 1 = 0
+\end{equation}
+Then it's clear that this equation always has at least one solution in \(\mathbb{F}_{p^{r}}\), the solution \((1, 0)\). From this we can get the other solutions by considering lines with slope \(t \in \mathbb{F}_{p^{r}}\), giving the explicit formula
+\begin{equation}
+(x, y) = \left(\frac{t^{2} - 1}{t^{2} + 1}, -\frac{2t}{t^{2}+1}\right)
+\end{equation}
+Trying this out explicitly for \(\mathbb{F}_{3}\), we get solutions
+\begin{subequations}
+\begin{align}
+f(0) & = (2, 0) \\
+f(1) & = (0, 2) \\
+f(2) & = (0, 1)
+\end{align}
+\end{subequations}
+in addition to the original solution \((1, 0)\).
+so we get \(\nu_{3} = 4\).
+
+For \(\mathbb{F}_{5}\), we get solutions
+\begin{subequations}
+\begin{align}
+f(0) & = (4, 0) \\
+f(1) & = (0, 4) \\
+f(4) & = (0, 1)
+\end{align}
+\end{subequations}
+where we've skipped \(f(2)\) and \(f(3)\) since the function is undefined for those values. Therefore we get \(\nu_{5} = 4\).
+
+We can generalize by working with the original formula. There are two things that can potentially go wrong. First, it can be the case that \(t^{2} + 1 = 0\) for some value of \(t\). Second it could be the case that for two different values of \(t\) the same point appears. 
+
+We can rule out the second possibility. With a little math, you can show that if \(f(t_{1}) = f(t_{2})\) then that implies that \(t_{1}^{2} = t_{2}^{2}\) or equivalently \(t_{1} = \pm t_{2}^{2}\). But then using the second coordinate, it's clear that we also must have \(t_{1} = t_{2}\).
+
+Now we just need to examine when the first problem happens. We're looking for solutions to
+\begin{equation}
+t^{2} = -1
+\end{equation}
+in \(\mathbb{F}_{p^{r}}\). But this is equivalent to requirement in terms of the Legendre symbol,
+\begin{equation}
+\left(\frac{-1}{\mathbb{F}_{p^{r}}}\right) = 1
+\end{equation}
+or equivalently,
+\begin{equation}
+(-1)^{(p^{r}-1)/2}  = 1
+\end{equation}
+or equivalently \(p^{r} \equiv 1 (\mod 4)\). This is further equivalent to \(p \equiv 1 (\mod 4)\) or \(r\) even.
+
+Finally, when there is a solution, there are always two distinct solutions (this can be seen from using the fact that the multiplicative group of \(\mathbb{F}_{p^{r}}\) is cyclic and looking at explicit solutions).
+
+Therefore, we can give explicit solutions for the \(\nu_{p^{r}}\),
+\begin{subequations}
+\begin{align}
+\nu_{p^{r}} & = p^{r} + 1 - (1 + (-1)^{(p^{r} - 1)/2}) \\
+& = p^{r} - (-1)^{(p^{r}-1)/2}
+\end{align}
+\end{subequations}
+Substituting this into the Zeta function we get
+\begin{subequations}
+\begin{align}
+Z_{X}(t) & = \sum_{r=1}^{\infty} t^{r}(p^{r} - (-1)^{(p^{r}-1)/2}) \\
+& = \frac{pt}{1-pt} - \sum_{r=1}^{\infty}(-1)^{(p^{r}-1)/2}t^{r}
+\end{align}
+\end{subequations}
+For \(p \equiv 1 (\mod 4)\), we have
+\begin{subequations}
+\begin{align}
+Z_{X}(t) & =  \frac{pt}{1-pt} - \sum_{r=1}^{\infty}t^{r} \\
+& = \frac{pt}{1-pt} - \frac{t}{1-t}
+\end{align}
+\end{subequations}
+For \(p \equiv 3 (\mod 4)\), we have
+\begin{subequations}
+\begin{align}
+Z_{X}(t) & =  \frac{pt}{1-pt} - \sum_{r=1}^{\infty}t^{r}(-1)^{r} \\
+& = \frac{pt}{1-pt} + \frac{t}{1+t}
+\end{align}
+\end{subequations}
+So the final result is,
+\begin{equation}
+Z_{X}(t) =  \frac{pt}{1-pt} - \frac{(-1)^{(p-1)/2}t}{1-(-1)^{(p-1)/2}t}
+\end{equation}
+Note that if we were being really careful, we'd consider other nonsingular curves which give different answers.
+
+
+
+
+
+\end{document}

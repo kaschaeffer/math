@@ -1,0 +1,190 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+
+\begin{document}
+
+\title{Solutions to Milnor's Galois Theory}
+
+\maketitle
+
+\section{Chapter 1}
+
+\subsection{1-1}
+Working in $E=\mathbb{Q}\left[\alpha\right] $ with $ \alpha^{3} - \alpha^{2} + \alpha + 2 = 0 $,
+\begin{subequations}
+\begin{align}
+(\alpha^{2} + \alpha + 1)(\alpha^{2} - \alpha) & = & (\alpha^{3} + \alpha^{2} + \alpha)(\alpha - 1) \\
+& = & (2\alpha^{2}-2)(\alpha - 1) \\
+& = & 2(\alpha^{2}-1)(\alpha - 1) \\
+& = & 2(\alpha^{3} - \alpha^{2} - \alpha + 1) \\
+& = & 2(-2\alpha-1) \\
+& = & -4\alpha-2
+\end{align}
+\end{subequations}
+
+Computing the inverse of $(\alpha - 1) $,
+\begin{subequations}
+\begin{align}
+1 & = & (a\alpha^{2} + b\alpha + c)(\alpha - 1) \\
+& = & a\alpha^{3} + (b-a)\alpha^{2} + (c-b)\alpha - c \\
+& = & b\alpha^{2} + (c-b-a)\alpha + (-c-2a) \\
+\end{align}
+\end{subequations}
+Therefore we conclude $ b = 0 $, $ c - a = 0 $, and $ - c - 2a = 1 $ or equivalently, $ a = c = -\frac{1}{3} $.
+
+Verifying the solution:
+\begin{subequations}
+\begin{align}
+-\frac{1}{3}(\alpha^{2}+1)(\alpha-1) & = & -\frac{1}{3}(\alpha^{3}-\alpha^{2}+\alpha-1) \\
+& = & -\frac{1}{3}(-3) \\
+& = & 1
+\end{align}
+\end{subequations}
+
+\subsection{1-2}
+\begin{equation}
+\left[\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}\right] = \left[\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})\right] \cdot \left[\mathbb{Q}(\sqrt{2}) : \mathbb{Q} \right]
+\end{equation}
+It's straightforward to see that $ \left[\mathbb{Q}(\sqrt{2}) : \mathbb{Q} \right] $ = 2. Next we need to determine the degree of $ \left[\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})\right] $. We can understand this by noting that $ \mathbb{Q}(\sqrt{2}, \sqrt{3}) $ is isomorphic to $ \mathbb{Q}(\sqrt{2})\left[\alpha\right] $ where $ \alpha $ satisfies $ \alpha^{2} - 3 = 0 $.
+
+So we really just need to determine if there are any solutions to this equation in $ \mathbb{Q}(\sqrt{2}) $. We can check this via,
+\begin{subequations}
+\begin{align}
+\alpha^{2} - 3 & = & (\alpha - (a + b\sqrt{2}))(\alpha - (c + d\sqrt{2})) \\
+& = & \alpha^{2} - (a+c) - (b+d)\sqrt{2} + (ac + 2bd + (ad + bc)\sqrt{2})
+\end{align}
+\end{subequations}
+where $a, b, c, d \in \mathbb{Q} $.
+From this it's clear that we must have $ a = -c $ and $ b = -d $, and then the equation becomes
+\begin{equation}
+3 = a^{2} + 2b^{2} + 2ab\sqrt{2}
+\end{equation}
+This has no solutions since we must have $ ab = 0 $.
+
+Therefore, $ \left[\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})\right] = 2 $ and
+\begin{equation}
+\left[\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}\right] = \left[\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})\right] \cdot \left[\mathbb{Q}(\sqrt{2}) : \mathbb{Q} \right] = 2 \cdot 2 = 4
+\end{equation}
+
+\subsection{1-3}
+TODO
+
+\subsection{1-4}
+TODO
+
+\section{Chapter 2}
+
+\subsection{2-1}
+TODO
+
+\subsection{}
+
+\subsubsection{(a)}
+Goal: for a field \(F\) of characteristic \(p\neq 0\), show that if $ f(X) = X^{p} - X - a $ is reducible in $F\left[X\right]$, then it splits into distinct factors in $F\left[X\right]$.
+
+We compute \(f'(X)\),
+\begin{equation}
+f'(X) = pX^{p-1} - 1 = -1
+\end{equation}
+
+But if \(f(X)\) had a repeated factor, say \(g(X)\), then we'd have \(g(X) | f(X)\) and \(g(X) | f'(X)\). But since \(f'(X)=-1\) there cannot be any repeated factors.
+
+\subsubsection{(b)}
+Goal: show $ f(X) = X^{p} - X - 1 $ is irreducible in \(\mathbb{Q}\left[X\right]\).
+
+We know any solution to this equation $r=c/d$ must have \(c|-1\) and \(d|1\), therefore the only possible solutions are \(1, -1\). We can check these explicitly:
+\begin{equation}
+1^{p} - 1 - 1 = -1 \neq 0
+\end{equation}
+For odd \(p\), we check
+\begin{equation}
+(-1)^{p} + 1 - 1 = -1 \neq 0
+\end{equation}
+For \(p=2\), we check
+\begin{equation}
+(-1)^{2} + 1 - 1 = 1 \neq 0
+\end{equation}
+Therefore \(X^{p}-X-1\) is irreducible in \(\mathbb{Q}\left[X\right]\).
+
+\subsection{}
+Construct the splitting field of \(X^{5}-2\) over \(\mathbb{Q}\).
+
+If we define \(\zeta = e^{\frac{2\pi i}{5}}\), then the roots of this equation are given by:
+\begin{equation}
+\sqrt[5]{2}, \sqrt[5]{2}\zeta, \sqrt[5]{2}\zeta^{2}, \sqrt[5]{2}\zeta^{3}, \sqrt[5]{2}\zeta^{4},
+\end{equation}
+From this it's clear that \(\mathbb{Q}\left[\sqrt[5]{2}, \zeta\right]\) is the splitting field.
+
+To determine it's degree, we use,
+\begin{equation}
+\left[\mathbb{Q}(\sqrt[5]{2}, \zeta) : \mathbb{Q}\right] = \left[\mathbb{Q}(\sqrt[5]{2}, \zeta) : \mathbb{Q}(\zeta) \right] \cdot \left[\mathbb{Q}(\zeta) : \mathbb{Q} \right]
+\end{equation}
+Starting with \(\left[\mathbb{Q}(\zeta) : \mathbb{Q} \right]\), we observe that there's a linear dependency,
+\begin{equation}
+1 + \zeta + \zeta^{2} + \zeta^{3} + \zeta^{4} = 0
+\end{equation}
+So that,
+\begin{equation}
+\left[\mathbb{Q}(\zeta) : \mathbb{Q} \right] = 4
+\end{equation}
+Next we look at $ \left[\mathbb{Q}(\sqrt[5]{2}, \zeta) : \mathbb{Q}(\zeta) \right] $. It's clear that this equals \(5\). Therefore, we find overall that
+\begin{equation}
+\left[\mathbb{Q}(\sqrt[5]{2}, \zeta) : \mathbb{Q}\right] = 5 \cdot 4 = 20
+\end{equation}
+
+\subsection{}
+Construct the splitting field of \(X^{p^{m}}-1\) over \(\mathbb{F}_{p}\left[X\right]\) and determine its degree over  \(\mathbb{F}_{p}\).
+
+Note that we can rewrite this as
+\begin{equation}
+X^{p^{m}} - 1 = (X-1)^{p^{m}}
+\end{equation}
+
+Therefore, the splitting field is just \(\mathbb{F}_{p}\) and the degree of the extension is 1.
+
+\subsection{}
+Let \(f \in F\left[X\right]\), where \(F\) is a field of characteristic 0. Let \(d(X) = gcd(f, f')\). Show that \(g(X) = f(X)d(X)^{-1}\) has the same roots as \(f(X)\), and that these are all simple roots of \(g(X)\).
+
+Let \(f'(X) = d(X)b(X)\). Then calculate,
+
+\begin{subequations}
+\begin{align}
+g'(X) & = & f'(X)d(X)^{-1} - f(X)d(X)^{-2}d'(X) \\
+& = & b(X) - g(X)d(X)^{-1}d'(X)
+\end{align}
+\end{subequations}
+
+But then we can rewrite this as
+\begin{equation}
+g(X)d'(X) = d(X)\cdot(b(X) - g'(X))
+\end{equation}
+XXX
+
+TODO
+
+\subsection{}
+Let \(f(X)\) be an irreducible polynomial in \(F\left[X\right]\), where \(F\) has characteristic \(p\). Show that \(f(X) = g(X^{p^{e}})\) where \(g(X)\) is irreducible and separable. Deduce that every root of \(f(X)\) has the same multiplicity \(p^{e}\) in any splitting field.
+
+We can write \(f(X)\) as,
+\begin{equation}
+f(X) = \sum_{i}a_{i}X^{i}
+\end{equation}
+Suppose we have a root \(\alpha\). Now we can plug in
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
