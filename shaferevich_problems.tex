@@ -347,6 +347,85 @@ Z_{X}(t) =  \frac{pt}{1-pt} - \frac{(-1)^{(p-1)/2}t}{1-(-1)^{(p-1)/2}t}
 \end{equation}
 Note that if we were being really careful, we'd consider other nonsingular curves which give different answers.
 
+\section{Solutions to Chapter 3}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+We have \(X \subset \mathbb{A}^{n}\) defined by \(f_{n-1}(T_{1}, \cdots, T_{n}) + f_{n}(T_{1}, \cdots, T_{n}) = 0\). We want to prove that this is birational to \(\mathbb{A}^{n-1}\).
+
+First, lets solve the easier plane curve problem. We take \(y = xt\) and then find,
+\begin{equation}
+f_{n}(x, y) + f_{n-1}(x, y) = x^{n}f_{n}(1, t) + x^{n-1}f_{n-1}(1, t) = x^{n-1}(xf_{n}(1, t) + f_{n-1}(1, t)) = 0
+\end{equation}
+Solving this we find,
+\begin{equation}
+x(t) = -\frac{f_{n-1}(1, t)}{f_{n}(1, t)}
+\end{equation}
+We can verify that this gives the right answer by substituting in results for the curve \(x^{3} + x^{2} - y^{2}\), which gives,
+\begin{equation}
+x(t) = t^{2} - 1
+\end{equation}
+
+Now we move back to the general case, and we'll assume \(T_{1} = t_{1}x, T_{2} = t_{2}x, \cdots, T_{n-1} = t_{n-1}x, T_{n} = x\), so we get,
+\begin{equation}
+x^{n-1}f_{n-1}(t_{1}, \cdots, t_{n-1}, 1) + x^{n}f_{n}(t_{1}, \cdots, t_{n-1}, 1) = 0
+\end{equation}
+which has solution,
+\begin{equation}
+x = -\frac{f_{n-1}(t_{1}, \cdots, t_{n-1}, 1)}{f_{n}(t_{1}, \cdots, t_{n-1}, 1)}
+\end{equation}
+
+Note that this projection doesn't quite work if the origin is included in the hypersurface \(X\). Actually maybe it does work...
+
+We now have a rational map \(\phi : \mathbb{A}^{n-1} \to X\). It's clear that \(\phi(\mathbb{A}^{n-1}) \subset X\). To show that this map is dense
+
+%Is it a birational map? To understand this, we can construct the inverse map,
+%\begin{equation}
+%(T_{1}/T_{n}, T_{2}/T_{n}, \cdots T_{n-1}/T_{n})
+%\end{equation}
+
+
+
+\subsection{}
+The rational function \(\phi = f_{1}/g_{1} = (1-y)/x\) is undefined at \((0, \pm 1)\) on the circle \(x^{2} + y^{2} = 1\). \(\phi\) can be written in another form,
+\begin{equation}
+\phi =  f_{2}/g_{2} = x/(1+y)
+\end{equation}
+This can be verified by checking explicitly that
+\begin{equation}
+f_{1}g_{2} - f_{2}g_{1} = (1-y)(1+y) - x^{2} = 1 - y^{2} - x^{2} \in \mathfrak{U}_{X}
+\end{equation}
+In this new form, \(\phi\) is only undefined at \((0,-1)\). This shows that \(\phi\) is at least regular everywhere except \((0, -1)\). We prove that it is not regular at \((0, -1)\) by contradiction. Imagine that there is some other way of writing \(\phi = f_{3}/g_{3}\) such that \(g_{3}(0, -1) \neq 0\). We now compute,
+\begin{equation}
+f_{1}g_{3} - f_{3}g_{1} = (1-y)g_{3} - f_{3}x
+\end{equation}
+We can now evaluate this expression at \((0, -1)\),
+\begin{equation}
+2g_{3} \neq 0
+\end{equation}
+But by definition it must be the case that this expession is in \(\mathfrak{U}_{X}\) which means it must vanish at \((0, -1)\), so we have a contradiction.
+
+\subsection{}
+The rational function \(t = y/x\) only fails to be irregular at \((0, 0)\). Another way to write this is as,
+\begin{equation}
+t = (x^{2} + x)/y
+\end{equation}
+but this does not remove the irregularity.
+
+To see that this must be a real irregularity and that \(y/x \notin k[X]\), we proceed by contradiction. Suppose there is some polynomial \(h(x, y)\) representation of \(t\). Then it must be the case that,
+\begin{equation}
+y - xh(x, y) \in \mathfrak{U}_{X}
+\end{equation} 
+This formula has a term \(y\) which cannot be cancelled by the second term, \(xh(x, y)\). However, \(\mathfrak{U}_{X} = (y^{2}-x^{2}-x^{3})\), which means that no element of \(\mathfrak{U}_{X}\) can contain a \(y\) term, so we have a contradiction.
+
+Finally, we know from the theorem in the text that if \(\phi \notin k[X]\) then it must not be regular everywhere, so we've proven that it's irregular at \((0, 0)\).
 
 
 
