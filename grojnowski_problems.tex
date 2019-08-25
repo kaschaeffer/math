@@ -1,0 +1,101 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\title{Solutions to Ian Grojnowski's Number Fields Part II Course}
+
+\maketitle
+
+Questions are taken from \href{https://dec41.user.srcf.net/notes/II_L/number_fields_eg.pdf}{here}.
+
+\section{}
+
+\subsection{\((1+i)\sqrt{3}\)}
+The equation,
+\begin{equation}
+f(x) = x^{4} + 36
+\end{equation}
+is satisfied by \((1+i)\sqrt{3}\) since
+\begin{equation}
+\left[(1+i)\sqrt{3}\right]^{4} = \left[6i\right]^{2} = -36
+\end{equation}
+
+\subsection{\(i+\sqrt{3}\)}
+The equation,
+\begin{equation}
+f(x) = x^{4} - 4x^{2} + 16
+\end{equation}
+is satisfied by \(i+\sqrt{3}\).
+
+\subsection{\(2\cos(2\pi/7)\)}
+The equation
+\begin{equation}
+x^{3} + x^{2} - 2x - 1
+\end{equation}
+is satisfied by \(2\cos(2\pi/7)\), by utilizing the identities,
+\begin{equation}
+2\cos(2\pi/7) = e^{2\pi i / 7} + e^{-2\pi i / 7}
+\end{equation}
+And the identity, setting \(\zeta = e^{2\pi i / 7}\),
+\begin{equation}
+1+\zeta + \zeta^{2} + \zeta^{3} + \cdots + \zeta^{6} = 0
+\end{equation}
+We just need to verify that this is irreducible. This can be shown easily by reducing the equation to \(\mathbb{Z}_{2}\left[x\right]\), where the equation becomes,
+\begin{equation}
+x^{3} + x^{2} + 1
+\end{equation}
+To check that this is irreducible, its easy to verify that \(x\) does not divide the polynomial. We can also check the one other alternative \((x+1)\) and explicitly verify that it doesn't divide the polynomial. Therefore, the original polynomial is irreducible.
+
+\section{}
+
+\section{}
+An element, \(x\), is a unit iff \(N(x) = \pm 1\). But the norm of an element \(x = a + b\sqrt{-d}\), is equal to
+\begin{equation}
+N(x) = a^{2} + db^{2}
+\end{equation}
+For \(d>1\) its clear this is only satisfied by \(a=\pm 1, b =0\).
+
+\section{}
+In \(\mathbb{Z}\left[\sqrt{3}\right]\),
+
+\begin{equation}
+11 = (2\sqrt{3} - 1)(2\sqrt{3} + 1)
+\end{equation}
+
+and
+
+\begin{equation}
+2 = (\sqrt{3} - 1)(\sqrt{3} + 1)
+\end{equation}
+
+Therefore the left side of the equation breaks up as,
+\begin{equation}
+22 = 2 \cdot 11 = (2\sqrt{3} - 1)(2\sqrt{3} + 1)(\sqrt{3} - 1)(\sqrt{3} + 1)
+\end{equation}
+
+But we can also see that,
+\begin{equation}
+5 + \sqrt{3} = (2\sqrt{3} - 1)(\sqrt{3} + 1)
+\end{equation}
+
+and
+
+\begin{equation}
+5 - \sqrt{3} = (2\sqrt{3} + 1)(\sqrt{3} - 1)
+\end{equation}
+
+and so we see that
+
+\begin{equation}
+22 = (5 + \sqrt{3})(5 - \sqrt{3}) = (2\sqrt{3} - 1)(2\sqrt{3} + 1)(\sqrt{3} - 1)(\sqrt{3} + 1)
+\end{equation}
+
+so that unique factorization still holds.
+
+\end{document}
